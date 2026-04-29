@@ -1,30 +1,23 @@
-[中文说明](README.zh-CN.md)
-
 # MW Ideaboard Open
 
-A lightweight visual inspiration board for collecting images, videos, tags, notes, and source links.
+[中文说明](README.zh-CN.md)
 
-It is designed for creators, marketers, content planners, designers, and anyone who needs a simple place to save visual references and creative ideas.
+## What Is This Project?
 
-Think of it as a clean, personal creative archive, not a heavy CMS, not a complex admin dashboard, but a focused ideaboard for collecting and revisiting inspiration.
+MW Ideaboard Open is a lightweight visual inspiration board for collecting images, videos, tags, notes, and source links.
 
----
+It is built for people who want a simple, fast, and focused way to save creative references. It is not a heavy CMS or a complex admin system. It is a small product-shaped workspace for turning scattered inspiration into a browsable archive.
 
-## Who is this for?
+## Who Is It For?
 
-This project is useful if you often collect:
+This project is useful for:
 
-- Visual references
-- Social media content ideas
-- Campaign inspiration
-- Advertising examples
-- Brand and design references
-- Short videos and image materials
-- Notes, tags, and source links
-
-Ideaboard helps you turn scattered inspiration into a structured, browsable archive.
-
----
+- Creators collecting visual references
+- Marketers tracking campaign ideas
+- Content planners organizing social media inspiration
+- Designers saving mood, style, and layout references
+- Small teams building a shared creative library
+- Anyone who wants to keep images, videos, links, tags, and notes in one place
 
 ## Features
 
@@ -32,7 +25,7 @@ Ideaboard helps you turn scattered inspiration into a structured, browsable arch
 - Masonry-style visual board
 - Tag management
 - Source link tracking
-- Notes / creative thinking field
+- Notes and creative thinking field
 - Monthly browsing
 - Monthly summary entry
 - Simple admin mode
@@ -42,8 +35,6 @@ Ideaboard helps you turn scattered inspiration into a structured, browsable arch
 - Lazy loading for images
 - Metadata preload for videos
 - Basic cache control for media and API responses
-
----
 
 ## Tech Stack
 
@@ -63,8 +54,6 @@ Ideaboard helps you turn scattered inspiration into a structured, browsable arch
 - Multer
 - PostgreSQL
 - Drizzle ORM
-
----
 
 ## Project Structure
 
@@ -94,21 +83,20 @@ Ideaboard helps you turn scattered inspiration into a structured, browsable arch
 ├── .env.example
 ├── .gitignore
 ├── LICENSE
-└── README.md
+├── README.md
+└── README.zh-CN.md
 ```
-
----
 
 ## Quick Start
 
-### 1. Clone the repository
+### 1. Clone The Repository
 
 ```bash
 git clone https://github.com/your-username/mw-ideaboard-open.git
 cd mw-ideaboard-open
 ```
 
-### 2. Configure backend environment variables
+### 2. Configure Backend Environment Variables
 
 Copy the example environment file:
 
@@ -116,27 +104,9 @@ Copy the example environment file:
 cp .env.example backend/.env
 ```
 
-Then update the values:
+Then update the placeholder values for your local setup.
 
-```env
-DATABASE_URL=postgresql://user:password@localhost:5432/ideaboard
-MW_ADMIN_KEY=change-me
-MIMO_API_KEY=your-ai-api-key
-MIMO_BASE_URL=https://example.com/v1
-MIMO_MODEL=your-model-name
-```
-
-Explanation:
-
-- `DATABASE_URL`: PostgreSQL connection string
-- `MW_ADMIN_KEY`: admin key for upload, edit, and delete actions
-- `MIMO_API_KEY`: optional AI tagging API key
-- `MIMO_BASE_URL`: optional AI API base URL
-- `MIMO_MODEL`: optional AI model name
-
-If you do not need AI tagging at the beginning, you can keep placeholder values and customize the logic later.
-
-### 3. Install and start the backend
+### 3. Install And Start The Backend
 
 ```bash
 cd backend
@@ -150,7 +120,7 @@ The backend runs on:
 http://localhost:3000
 ```
 
-### 4. Install and start the frontend
+### 4. Install And Start The Frontend
 
 Open another terminal:
 
@@ -166,9 +136,27 @@ The frontend usually runs on:
 http://localhost:5173
 ```
 
-If port 5173 is already in use, Vite may switch to another port such as 5174. Use the URL shown in your terminal.
+If port 5173 is already in use, Vite may switch to another available port. Use the URL shown in your terminal.
 
----
+## Environment Variables
+
+Create `backend/.env` from `.env.example`.
+
+```env
+DATABASE_URL=postgresql://user:password@localhost:5432/ideaboard
+MW_ADMIN_KEY=change-me
+MIMO_API_KEY=your-ai-api-key
+MIMO_BASE_URL=https://example.com/v1
+MIMO_MODEL=your-model-name
+```
+
+- `DATABASE_URL`: PostgreSQL connection string
+- `MW_ADMIN_KEY`: admin key for upload, edit, and delete actions
+- `MIMO_API_KEY`: optional AI tagging API key
+- `MIMO_BASE_URL`: optional AI API base URL
+- `MIMO_MODEL`: optional AI model name
+
+If you do not need AI tagging at the beginning, you can keep placeholder values and customize the logic later.
 
 ## Database
 
@@ -194,8 +182,6 @@ The actual files are saved in:
 backend/uploads
 ```
 
----
-
 ## Upload Storage
 
 Uploaded images and videos are stored in:
@@ -217,8 +203,6 @@ If you deploy this project, make sure to back up both:
 - PostgreSQL database
 - `backend/uploads`
 
----
-
 ## Admin Mode
 
 Ideaboard includes a simple admin-protected workflow.
@@ -230,7 +214,7 @@ Default flow:
 1. Double-click the footer copyright area
 2. Enter the admin key
 3. Enter admin mode
-4. Upload / edit / delete requests include the admin key
+4. Upload, edit, and delete requests include the admin key
 5. The backend validates the key with `MW_ADMIN_KEY`
 
 Configure the admin key in `backend/.env`:
@@ -240,8 +224,6 @@ MW_ADMIN_KEY=change-me
 ```
 
 This is a lightweight protection mechanism, not a full user authentication system.
-
----
 
 ## Common Commands
 
@@ -273,17 +255,15 @@ cd frontend
 npm run preview
 ```
 
----
-
 ## Deployment Notes
 
 You can deploy this project to any environment that supports Node.js and PostgreSQL.
 
 A common setup:
 
-- Build frontend with Vite
+- Build the frontend with Vite
 - Serve `frontend/dist` as static files
-- Run backend with Node.js
+- Run the backend with Node.js
 - Use PostgreSQL as the database
 - Keep uploaded files in `backend/uploads`
 - Use a reverse proxy if needed
@@ -294,8 +274,6 @@ For public usage, it is recommended to:
 - Back up `backend/uploads`
 - Never commit `.env`
 - Never commit real uploaded media files
-
----
 
 ## Security Notes
 
@@ -312,14 +290,12 @@ Do not commit:
 
 Use `.env.example` as the configuration template.
 
----
-
 ## Roadmap
 
 Possible future improvements:
 
-- Backend pagination and "Load more"
-- Video poster / cover image support
+- Backend pagination and load more
+- Video poster or cover image support
 - Improved AI tagging
 - Tag filtering
 - Search
@@ -327,12 +303,10 @@ Possible future improvements:
 - Object storage support
 - More complete admin dashboard
 
----
-
 ## License
 
 MIT License
 
 You are free to learn from, use, and modify this project.
 
-This open-source version does not include any proprietary brand assets, private fonts, production deployment records, or real uploaded media.
+This open-source version does not include proprietary brand assets, private fonts, production deployment records, or real uploaded media.

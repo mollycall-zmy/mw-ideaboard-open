@@ -1,13 +1,14 @@
-[English](README.md)
-
 # MW Ideaboard Open
 
-一个轻量级图片 / 视频灵感板项目。  
-适合用来搭建个人创意库、素材收藏夹、内容策划板、视觉参考库，帮助你把日常看到的好内容、好画面、好想法沉淀下来。
+[English](README.md)
 
-它不是一个复杂的后台系统，而是一个更轻、更快、更适合个人使用的「创意收纳空间」。
+## 项目介绍
 
----
+MW Ideaboard Open 是一个轻量级图片 / 视频灵感板项目。
+
+它适合用来搭建个人创意库、素材收藏夹、内容策划板和视觉参考库，帮助你把日常看到的好内容、好画面、好想法沉淀下来。
+
+它不是一个复杂的后台系统，而是一个更轻、更快、更适合个人使用的创意收纳空间。
 
 ## 项目适合谁？
 
@@ -19,8 +20,6 @@
 - 图片、视频、链接、标签和自己的想法
 
 那么这个项目可以帮你把这些碎片变成一个可浏览、可检索、可复盘的灵感库。
-
----
 
 ## 功能特点
 
@@ -38,8 +37,6 @@
 - 图片懒加载
 - 视频 metadata 预加载优化
 - 后端接口基础缓存控制
-
----
 
 ## 技术栈
 
@@ -59,8 +56,6 @@
 - Multer
 - PostgreSQL
 - Drizzle ORM
-
----
 
 ## 项目结构
 
@@ -90,10 +85,9 @@
 ├── .env.example
 ├── .gitignore
 ├── LICENSE
-└── README.md
+├── README.md
+└── README.zh-CN.md
 ```
-
----
 
 ## 快速开始
 
@@ -112,36 +106,13 @@ cd mw-ideaboard-open
 cp .env.example backend/.env
 ```
 
-然后根据你的实际情况填写：
+然后根据你的本地环境填写占位值。
 
-```env
-DATABASE_URL=postgresql://user:password@localhost:5432/ideaboard
-MW_ADMIN_KEY=change-me
-MIMO_API_KEY=your-ai-api-key
-MIMO_BASE_URL=https://example.com/v1
-MIMO_MODEL=your-model-name
-```
-
-说明：
-
-- `DATABASE_URL`：PostgreSQL 数据库连接地址
-- `MW_ADMIN_KEY`：主理人管理暗号，用于上传、编辑、删除
-- `MIMO_API_KEY`：可选，AI 标签识别接口 Key
-- `MIMO_BASE_URL`：可选，AI 接口地址
-- `MIMO_MODEL`：可选，AI 模型名称
-
-如果暂时不接 AI，也可以先保留占位值，后续自行调整相关逻辑。
-
-### 3. 安装后端依赖
+### 3. 安装并启动后端
 
 ```bash
 cd backend
 npm install
-```
-
-启动后端：
-
-```bash
 node index.js
 ```
 
@@ -151,18 +122,13 @@ node index.js
 http://localhost:3000
 ```
 
-### 4. 安装前端依赖
+### 4. 安装并启动前端
 
 新开一个终端：
 
 ```bash
 cd frontend
 npm install
-```
-
-启动前端：
-
-```bash
 npm run dev
 ```
 
@@ -172,9 +138,27 @@ npm run dev
 http://localhost:5173
 ```
 
-如果 5173 被占用，Vite 可能会自动切换到 5174 或其他端口，请以终端显示为准。
+如果 5173 被占用，Vite 可能会自动切换到其他端口，请以终端显示为准。
 
----
+## 环境变量说明
+
+请从 `.env.example` 创建 `backend/.env`。
+
+```env
+DATABASE_URL=postgresql://user:password@localhost:5432/ideaboard
+MW_ADMIN_KEY=change-me
+MIMO_API_KEY=your-ai-api-key
+MIMO_BASE_URL=https://example.com/v1
+MIMO_MODEL=your-model-name
+```
+
+- `DATABASE_URL`：PostgreSQL 数据库连接地址
+- `MW_ADMIN_KEY`：主理人管理暗号，用于上传、编辑、删除
+- `MIMO_API_KEY`：可选，AI 标签识别接口 Key
+- `MIMO_BASE_URL`：可选，AI 接口地址
+- `MIMO_MODEL`：可选，AI 模型名称
+
+如果暂时不接 AI，也可以先保留占位值，后续自行调整相关逻辑。
 
 ## 数据库说明
 
@@ -200,9 +184,7 @@ backend/uploads
 /uploads/example.jpg
 ```
 
----
-
-## 上传文件说明
+## 上传目录说明
 
 `backend/uploads` 用来存放实际上传的图片和视频文件。
 
@@ -215,8 +197,6 @@ backend/uploads/.gitkeep
 不会提交真实媒体文件。
 
 你自己的上传内容会保存在本地或部署环境的 `backend/uploads` 目录中，请注意备份。
-
----
 
 ## 主理人模式
 
@@ -237,8 +217,6 @@ backend/uploads/.gitkeep
 ```env
 MW_ADMIN_KEY=change-me
 ```
-
----
 
 ## 常用命令
 
@@ -270,8 +248,6 @@ cd frontend
 npm run preview
 ```
 
----
-
 ## 部署建议
 
 这个项目可以部署到任意支持 Node.js 和 PostgreSQL 的环境。
@@ -290,8 +266,6 @@ npm run preview
 - 不要提交 `.env`
 - 不要提交真实上传媒体文件
 
----
-
 ## 安全提醒
 
 请不要把以下内容提交到公开仓库：
@@ -307,22 +281,18 @@ npm run preview
 
 本项目已提供 `.env.example`，请用它作为环境变量模板。
 
----
-
 ## Roadmap
 
 后续可以扩展：
 
-- 后端分页与“加载更多”
-- 视频封面图 coverUrl
+- 后端分页与加载更多
+- 视频封面图支持
 - AI 自动标签优化
 - 标签筛选
 - 搜索功能
 - 多用户账号系统
 - 对象存储支持
 - 更完善的后台管理界面
-
----
 
 ## License
 
