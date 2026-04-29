@@ -2,6 +2,8 @@
 
 [English](README.md)
 
+项目参考：[idea.mollycall.cn](https://idea.mollycall.cn/)
+
 ## 项目介绍
 
 MW Ideaboard Open 是一个轻量级图片 / 视频灵感板项目。

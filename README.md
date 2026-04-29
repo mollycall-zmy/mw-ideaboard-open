@@ -2,6 +2,8 @@
 
 [中文说明](README.zh-CN.md)
 
+Live Demo: [idea.mollycall.cn](https://idea.mollycall.cn/)
+
 ## What Is This Project?
 
 MW Ideaboard Open is a lightweight visual inspiration board for collecting images, videos, tags, notes, and source links.
