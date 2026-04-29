@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --color-mw-gold: #Cfa76f;
+  --color-mw-dark: #333333;
+  --color-mw-light: #F9F9F9;
+  --color-mw-white: #FFFFFF;
+  --radius-mw: 12px;
+  --shadow-mw: 0 4px 20px rgba(0,0,0,0.05);
+
+  --font-canger: Georgia, 'Times New Roman', serif;
+}
+
+body {
+  background-color: var(--color-mw-light);
+  color: var(--color-mw-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
